@@ -1,17 +1,10 @@
-import { useQuery, useMutation } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
+import { GetUsersApi } from "./api";
 
-export function All() {
-    return useQuery({
-      queryKey: ["all"],
-      queryFn: '',
-    });
-  }
-  
-  export function Create(client) {
-    return useMutation({
-      mutationFn: (data) =>'',
-    //   onSuccess: () => {
-    //     client.invalidateQueries({ queryKey: ["all-category"] });
-    //   },
-    });
-  }
+export function AllUsers(InitFunc) {
+  return useQuery({
+    queryKey: ["user-data", InitFunc],
+    queryFn: GetUsersApi,
+    staleTime: 1000000,
+  });
+}
