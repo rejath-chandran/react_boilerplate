@@ -24,7 +24,7 @@ function EditModal({ remove, id }) {
           <button
           onClick={()=>SetOpen(prev=>!prev)}
           >
-            
+            //hey
             close</button>
         </form>
       </dialog>}
